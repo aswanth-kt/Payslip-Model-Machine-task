@@ -9,11 +9,13 @@ function App() {
   return (
     <>
     <Sidebar/>
-    <Routes>
-      <Route path="/create-employee" element={<EmployeeCreation />} />
-      <Route path="/" element={<DisplayEmployees />} />
-      <Route path="/manage-employee/:id" element={<ManageEmployees />} />
-    </Routes>
+    <div  style={{ marginLeft: "200px", padding: "20px" }}>
+      <Routes>
+        <Route path="/create-employee" element={<EmployeeCreation />} />
+        <Route path="/" element={<DisplayEmployees />} />
+        <Route path="/manage-employee/:id" element={<ManageEmployees />} />
+      </Routes>
+    </div>
     </>
   )
 }

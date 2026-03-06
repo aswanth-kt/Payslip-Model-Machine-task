@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
@@ -9,19 +10,23 @@ export const Sidebar = () => {
       <ul className="menu">
 
         <li>
-          <a href="#">Employees</a>
+          <Link to="/" >Employees</Link>
         </li>
 
         <li>
-          <a href="#">Generate Payslip</a>
+          <Link to="/create-employee" >Add Employees</Link>
         </li>
 
         <li>
-          <a href="#">Settings</a>
+          <Link to="#" >Generate Payslip</Link>
+        </li>
+
+        <li>
+          <Link to="#" >Settings</Link>
         </li>
 
         <li className="logout">
-          <a href="#">Logout</a>
+          <Link to="#" >Logout</Link>
         </li>
 
       </ul>

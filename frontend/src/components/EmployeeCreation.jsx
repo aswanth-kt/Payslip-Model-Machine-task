@@ -40,6 +40,11 @@ export const EmployeeCreation = () => {
 
       console.log(response.data.message);
 
+      if (response.status === 201) {
+        toast.success("The employee is created");
+        navigate("/");
+      }
+
       // clear form after submit
       setEmployee({
         name: "",
@@ -53,11 +58,6 @@ export const EmployeeCreation = () => {
         esiPercent: "",
         pfPercent: ""
       });
-
-      if (response.status === 200) {
-        toast.success("The employee is created");
-        navigate("/");
-      }
 
     } catch (error) {
 
