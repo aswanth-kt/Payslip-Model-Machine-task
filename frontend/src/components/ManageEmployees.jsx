@@ -71,7 +71,7 @@ export const ManageEmployees = () => {
         toast.warning(`${res?.data?.message}` || "Something went wrong")
       }      
 
-      navigate("/display-employee");
+      navigate("/");
 
     } catch (error) {
 

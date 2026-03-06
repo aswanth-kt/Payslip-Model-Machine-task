@@ -1,6 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
 import "./EmployeeCreation.css";
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 export const EmployeeCreation = () => {
 
@@ -16,6 +18,8 @@ export const EmployeeCreation = () => {
     esiPercent: "",
     pfPercent: ""
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     setEmployee({
@@ -49,6 +53,11 @@ export const EmployeeCreation = () => {
         esiPercent: "",
         pfPercent: ""
       });
+
+      if (response.status === 200) {
+        toast.success("The employee is created");
+        navigate("/");
+      }
 
     } catch (error) {
 

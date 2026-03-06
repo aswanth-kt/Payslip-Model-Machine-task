@@ -41,7 +41,7 @@ export const DisplayEmployees = () => {
     });
 
     if (!deleteConfirm.isConfirmed) {
-      navigate("/display-employee");
+      navigate("/");
       return toast.warning("The employee is not deleted");
     };
 
@@ -49,7 +49,7 @@ export const DisplayEmployees = () => {
 
     if (res.status === 200) {
       toast.success(`${res.data?.message}` || "The employee is deleted");
-      navigate("/display-employee");
+      navigate("/");
     }
   }
 
@@ -98,7 +98,7 @@ export const DisplayEmployees = () => {
                 </Link>
                 <Link 
                 to={`/delete-employee/${emp._id}`}
-                onClick={ (e) => handleDelete(emp._id) }
+                onClick={ () => handleDelete(emp._id) }
                 >
                   Delete
                 </Link>
