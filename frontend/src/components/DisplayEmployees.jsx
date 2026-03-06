@@ -4,6 +4,9 @@ import { Link, useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { toast } from "react-toastify";
+import "./DisplayEmployees.css";
+
+
 const mySwal = withReactContent(Swal);
 
 export const DisplayEmployees = () => {
@@ -56,59 +59,83 @@ export const DisplayEmployees = () => {
   // console.log("display emp:", employees);
 
   return (
-    <div style={{ width: "90%", margin: "auto" }}>
+    <div className="employee-page">
 
-      <h2>Employee List</h2>
+      <h2 className="page-title">Employee List</h2>
 
-      <table border="1" width="100%" cellPadding="10">
+      <div className="table-container">
 
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Employee ID</th>
-            <th>Designation</th>
-            <th>Joining Date</th>
-            <th>Basic Salary</th>
-            <th>HRA %</th>
-            <th>DA %</th>
-            <th>Allowance %</th>
-            <th>ESI %</th>
-            <th>PF %</th>
-            <th>ACTION</th>
-          </tr>
-        </thead>
+        <table className="employee-table">
 
-        <tbody>
-
-          {employees.map((emp) => (
-            <tr key={emp._id}>
-              <td>{emp.name}</td>
-              <td>{emp.employeeId}</td>
-              <td>{emp.designation}</td>
-              <td>{new Date(emp.joiningDate).toLocaleDateString()}</td>
-              <td>{emp.basicSalary}</td>
-              <td>{emp.hraPercent}</td>
-              <td>{emp.daPercent}</td>
-              <td>{emp.allowancePercent}</td>
-              <td>{emp.esiPercent}</td>
-              <td>{emp.pfPercent}</td>
-              <td>
-                <Link to={`/manage-employee/${emp._id}`}>
-                  Edit
-                </Link>
-                <Link 
-                to={`/delete-employee/${emp._id}`}
-                onClick={ () => handleDelete(emp._id) }
-                >
-                  Delete
-                </Link>
-              </td>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Employee ID</th>
+              <th>Designation</th>
+              <th>Joining Date</th>
+              <th>Basic Salary</th>
+              <th>HRA %</th>
+              <th>DA %</th>
+              <th>Allowance %</th>
+              <th>ESI %</th>
+              <th>PF %</th>
+              <th>Action</th>
             </tr>
-          ))}
+          </thead>
 
-        </tbody>
+          <tbody>
 
-      </table>
+            {employees.map((emp) => (
+              <tr key={emp._id}>
+
+                <td className="emp-name">{emp.name}</td>
+                <td>{emp.employeeId}</td>
+
+                <td>
+                  <span className="designation-badge">
+                    {emp.designation}
+                  </span>
+                </td>
+
+                <td>{new Date(emp.joiningDate).toLocaleDateString()}</td>
+
+                <td className="salary">
+                  ₹{emp.basicSalary}
+                </td>
+
+                <td>{emp.hraPercent}</td>
+                <td>{emp.daPercent}</td>
+                <td>{emp.allowancePercent}</td>
+                <td>{emp.esiPercent}</td>
+                <td>{emp.pfPercent}</td>
+
+                <td className="actions">
+
+                  <Link 
+                    to={`/manage-employee/${emp._id}`}
+                    className="edit-btn"
+                  >
+                    Edit
+                  </Link>
+
+                  <Link 
+                    to={`/delete-employee/${emp._id}`}
+                    onClick={() => handleDelete(emp._id)}
+                    className="delete-btn"
+                  >
+                    Delete
+                  </Link>
+
+                </td>
+
+              </tr>
+            ))}
+
+          </tbody>
+
+        </table>
+
+      </div>
 
     </div>
   );

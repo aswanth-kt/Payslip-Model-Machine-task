@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import "./EmployeeCreation.css";
+// import "./EmployeeCreation.css";
 import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 
@@ -73,109 +73,120 @@ export const EmployeeCreation = () => {
   };
 
   return (
-    <div style={{width:"400px", margin:"auto"}}>
+    <div className="container">
 
       <h2>Create Employee</h2>
 
       <form onSubmit={handleSubmit}>
 
-        <input
-          type="text"
-          name="name"
-          placeholder="Employee Name"
-          value={employee.name}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>Employee Name</label>
+          <input
+            type="text"
+            name="name"
+            placeholder="Enter employee name"
+            value={employee.name}
+            onChange={handleChange}
+          />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label>Employee ID</label>
+          <input
+            type="text"
+            name="employeeId"
+            placeholder="Enter employee ID"
+            value={employee.employeeId}
+            onChange={handleChange}
+          />
+        </div>
 
-        <input
-          type="text"
-          name="employeeId"
-          placeholder="Employee ID"
-          value={employee.employeeId}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>Designation</label>
+          <input
+            type="text"
+            name="designation"
+            placeholder="Enter designation"
+            value={employee.designation}
+            onChange={handleChange}
+          />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label>Joining Date</label>
+          <input
+            type="date"
+            name="joiningDate"
+            value={employee.joiningDate}
+            onChange={handleChange}
+          />
+        </div>
 
-        <input
-          type="text"
-          name="designation"
-          placeholder="Designation"
-          value={employee.designation}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>Basic Salary</label>
+          <input
+            type="number"
+            name="basicSalary"
+            placeholder="Enter basic salary"
+            value={employee.basicSalary}
+            onChange={handleChange}
+          />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label>HRA %</label>
+          <input
+            type="number"
+            name="hraPercent"
+            placeholder="Enter HRA %"
+            value={employee.hraPercent}
+            onChange={handleChange}
+          />
+        </div>
 
-        <input
-          type="date"
-          name="joiningDate"
-          value={employee.joiningDate}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>DA %</label>
+          <input
+            type="number"
+            name="daPercent"
+            placeholder="Enter DA %"
+            value={employee.daPercent}
+            onChange={handleChange}
+          />
+        </div>
 
-        <br /><br />
+        <div className="form-group">
+          <label>Allowance %</label>
+          <input
+            type="number"
+            name="allowancePercent"
+            placeholder="Enter allowance %"
+            value={employee.allowancePercent}
+            onChange={handleChange}
+          />
+        </div>
 
-        <input
-          type="number"
-          name="basicSalary"
-          placeholder="Basic Salary"
-          value={employee.basicSalary}
-          onChange={handleChange}
-        />
+        <div className="form-group">
+          <label>ESI %</label>
+          <input
+            type="number"
+            name="esiPercent"
+            placeholder="Enter ESI %"
+            value={employee.esiPercent}
+            onChange={handleChange}
+          />
+        </div>
 
-        <br /><br />
-        <input
-          type="number"
-          name="hraPercent"
-          placeholder="HRA %"
-          value={employee.hraPercent}
-          onChange={handleChange}
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          name="daPercent"
-          placeholder="DA %"
-          value={employee.daPercent}
-          onChange={handleChange}
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          name="allowancePercent"
-          placeholder="Allowance %"
-          value={employee.allowancePercent}
-          onChange={handleChange}
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          name="esiPercent"
-          placeholder="ESI %"
-          value={employee.esiPercent}
-          onChange={handleChange}
-        />
-
-        <br /><br />
-
-        <input
-          type="number"
-          name="pfPercent"
-          placeholder="PF %"
-          value={employee.pfPercent}
-          onChange={handleChange}
-        />
-
-        <br /><br />
+        <div className="form-group">
+          <label>PF %</label>
+          <input
+            type="number"
+            name="pfPercent"
+            placeholder="Enter PF %"
+            value={employee.pfPercent}
+            onChange={handleChange}
+          />
+        </div>
 
         <button type="submit">Create Employee</button>
 

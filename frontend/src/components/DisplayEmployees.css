@@ -1,0 +1,97 @@
+body{
+  margin:0;
+  font-family: "Segoe UI", sans-serif;
+  background:#f4f6f9;
+}
+
+.employee-page{
+  width:90%;
+  margin:auto;
+  padding:40px 0;
+}
+
+.page-title{
+  margin-bottom:20px;
+  color:#1f2937;
+}
+
+/* container card */
+.table-container{
+  background:white;
+  border-radius:12px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  overflow:hidden;
+}
+
+/* table */
+.employee-table{
+  width:100%;
+  border-collapse:collapse;
+}
+
+/* header */
+.employee-table thead{
+  background:#f3f4f6;
+}
+
+.employee-table th{
+  padding:16px;
+  text-align:left;
+  font-size:13px;
+  color:#6b7280;
+  letter-spacing:1px;
+}
+
+/* rows */
+.employee-table td{
+  padding:16px;
+  border-top:1px solid #eee;
+  font-size:14px;
+}
+
+.employee-table tbody tr:hover{
+  background:#fafafa;
+}
+
+/* employee name */
+.emp-name{
+  font-weight:600;
+}
+
+/* designation badge */
+.designation-badge{
+  background:#e0f2fe;
+  color:#0369a1;
+  padding:6px 12px;
+  border-radius:20px;
+  font-size:12px;
+}
+
+/* salary */
+.salary{
+  font-weight:600;
+}
+
+/* action buttons */
+.actions{
+  display:flex;
+  gap:10px;
+}
+
+.edit-btn{
+  text-decoration:none;
+  background:#e0f2fe;
+  color:#0369a1;
+  padding:6px 10px;
+  border-radius:6px;
+  font-size:13px;
+}
+
+.delete-btn{
+  text-decoration:none;
+  background:#fee2e2;
+  color:#dc2626;
+  padding:6px 10px;
+  border-radius:6px;
+  font-size:13px;
+}
