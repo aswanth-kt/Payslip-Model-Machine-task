@@ -204,4 +204,96 @@ export const deleteEmployee = async (req, res) => {
       message: "Internal Server error"
     })
   }
+};
+
+
+export const calculateSalary = async (req, res) => {
+  try {
+
+    const { emp_id, totalDay, leave } = req.body;
+
+    if (totalDay == null || leave == null) {
+      return res.status(400).json({
+        success: false,
+        message: "All fields are required"
+      })
+    };
+
+    if (leave > totalDay) {
+      return res.status(400).json({
+        success: false,
+        message: "Leave cannot be greater than total days"
+      });
+    }
+
+    if (!emp_id) {
+      return res.status(400).json({
+        success: false,
+        message: "Please select an employee"
+      })
+    }
+
+    if (!mongoose.isValidObjectId(emp_id)) {
+      return res.status(400).json({
+        success: false,
+        message: "Invalid Id"
+      })
+    };
+
+    console.log("calc body:", req.body)
+    const employee = await Employee.findById(emp_id);
+
+    if (!employee) {
+      return res.status(404).json({
+        success: false,
+        message: "Employee not found"
+      })
+    };
+
+    // calculate salary
+    const totalPayableDay = Number(totalDay) - Number(leave)
+    const perDaySalary = employee.basicSalary / Number(totalDay);
+
+    const adjustBasicSalary = perDaySalary * totalPayableDay;
+    const hra = adjustBasicSalary * (employee.hraPercent / 100);
+    const da = adjustBasicSalary * (employee.daPercent / 100);
+    const otherAllowances = adjustBasicSalary * (employee.allowancePercent / 100);
+
+    const pf = adjustBasicSalary * (employee.pfPercent / 100);
+    const esi = adjustBasicSalary * (employee.esiPercent / 100);
+
+    const totalEarnings = adjustBasicSalary + hra + da + otherAllowances;
+    const totalDeductions = pf + esi;
+
+    const netSalary = totalEarnings - totalDeductions;
+
+    const payslipData = {
+      leave: Number(leave),
+      totalPayableDay,
+      perDaySalary,
+      adjustBasicSalary,
+      hra: hra.toFixed(2),
+      da: da.toFixed(2),
+      otherAllowances: otherAllowances.toFixed(2),
+      pf: pf.toFixed(2),
+      esi: esi.toFixed(2),
+      totalEarnings,
+      totalDeductions,
+      netSalary,
+      employee
+    };
+
+    return res.status(200).json({
+      success: true,
+      message: "Payslip generated",
+      payslipData
+    })
+    
+  } catch (error) {
+    console.log("Error in calculate employees salary:", error?.message);
+    return res.status(500).json({
+      success: false,
+      message: "Internal Server error"
+    })
+  }
 }

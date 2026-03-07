@@ -28,7 +28,7 @@ export const ManageEmployees = () => {
     });
   };
 
-  // fetch employee
+  // fetch single employee
   const getEmployee = async () => {
 
     try {

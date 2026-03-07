@@ -4,6 +4,7 @@ import { DisplayEmployees } from './components/DisplayEmployees'
 import { EmployeeCreation } from './components/EmployeeCreation'
 import { ManageEmployees } from './components/ManageEmployees';
 import { Sidebar } from './components/Sidebar';
+import { PayslipPage } from './page/PayslipPage';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path="/create-employee" element={<EmployeeCreation />} />
         <Route path="/" element={<DisplayEmployees />} />
         <Route path="/manage-employee/:id" element={<ManageEmployees />} />
+        <Route path='/generatePayslip' element={<PayslipPage />} />
       </Routes>
     </div>
     </>

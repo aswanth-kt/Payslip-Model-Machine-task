@@ -27,5 +27,5 @@ app.use("/api/employee", employeeRouter);
 
 app.listen(port, (err) => {
   if (err) console.error("Server error: ", err);
-  else console.log(`localhost: http://localhost:${port}`);
+  console.log(`localhost: http://localhost:${port}`);
 });

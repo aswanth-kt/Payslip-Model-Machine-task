@@ -1,0 +1,92 @@
+body{
+  margin:0;
+  background:#f4f6f9;
+  font-family: "Segoe UI", sans-serif;
+}
+
+.payslip-page{
+  padding:40px;
+}
+
+.page-title{
+  font-size:34px;
+  font-weight:700;
+  margin-bottom:25px;
+  color:#111827;
+}
+
+/* card */
+.salary-card{
+  background:white;
+  padding:30px;
+  border-radius:12px;
+  box-shadow:0 8px 20px rgba(0,0,0,0.08);
+}
+
+/* title */
+.card-title{
+  display:flex;
+  align-items:center;
+  gap:10px;
+  margin-bottom:25px;
+}
+
+.card-title h2{
+  margin:0;
+  font-size:22px;
+}
+
+.icon{
+  font-size:22px;
+}
+
+/* form layout */
+.salary-form{
+  display:grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap:20px;
+  align-items:end;
+}
+
+/* form group */
+.form-group{
+  display:flex;
+  flex-direction:column;
+}
+
+label{
+  font-size:14px;
+  margin-bottom:6px;
+  color:#374151;
+}
+
+/* inputs */
+select,
+input{
+  padding:10px;
+  border:1px solid #d1d5db;
+  border-radius:8px;
+  font-size:14px;
+}
+
+/* focus */
+select:focus,
+input:focus{
+  outline:none;
+  border-color:#6366f1;
+}
+
+/* button */
+.generate-btn{
+  background:linear-gradient(90deg,#4f46e5,#6366f1);
+  color:white;
+  border:none;
+  padding:11px;
+  border-radius:8px;
+  font-size:15px;
+  cursor:pointer;
+}
+
+.generate-btn:hover{
+  opacity:0.9;
+}

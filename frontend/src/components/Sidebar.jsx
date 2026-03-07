@@ -18,7 +18,7 @@ export const Sidebar = () => {
         </li>
 
         <li>
-          <Link to="#" >Generate Payslip</Link>
+          <Link to="/generatePayslip" >Generate Payslip</Link>
         </li>
 
         <li>
