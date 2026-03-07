@@ -219,7 +219,7 @@ export const calculateSalary = async (req, res) => {
       })
     };
 
-    if (leave > totalDay) {
+    if (Number(leave) > Number(totalDay)) {
       return res.status(400).json({
         success: false,
         message: "Leave cannot be greater than total days"

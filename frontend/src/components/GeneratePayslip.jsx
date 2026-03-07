@@ -53,12 +53,12 @@ export const GeneratePayslip = ({ setPayslip }) => {
       );
       console.log("calc res:", res);
 
-      if (!res.data.success) {
-        toast.warning(`${res.data?.message}` || "Somthing went wrong")
-      }
-
       //pass res payslip data to payslip component
       setPayslip(res.data.payslipData);
+
+      if (!res.data?.success) {
+        toast.warning(`${res.data?.message}` || "Somthing went wrong")
+      }
 
       if (res.status === 200) {
         toast.success(`${res.data?.message}` || "Generate payslip successfully")
