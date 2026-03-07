@@ -1,11 +1,16 @@
 import "./Payslip.css"
 
 export const Payslip = ({ payslipData }) => {
+
+  const handlePrint = () => {
+    window.print();
+  }
+
   return (
     <div className="payslip-page">
 
       <div className="print-area">
-        <button className="print-btn">🖨 Print Payslip</button>
+        <button className="print-btn" onClick={handlePrint} >🖨 Print Payslip</button>
       </div>
 
       <div className="payslip-card">
