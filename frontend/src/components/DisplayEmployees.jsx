@@ -14,22 +14,25 @@ export const DisplayEmployees = () => {
   const [employees, setEmployees] = useState([]);
   const navigate = useNavigate();
 
-  const getEmployees = async () => {
-
-    try {
-
-      const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/employee/display-employees`);
-      // console.log("emp", res.data.employees)
-      setEmployees(res.data.employees);
-
-    } catch (error) {
-      console.log(error);
-    }
-
-  };
-
+  
   useEffect(() => {
+
+    const getEmployees = async () => {
+  
+      try {
+  
+        const res = await axios.get(`${import.meta.env.VITE_BACKEND_URL}/api/employee/display-employees`);
+        // console.log("emp", res.data.employees)
+        setEmployees(res.data.employees);
+  
+      } catch (error) {
+        console.log(error);
+      }
+  
+    };
+    
     getEmployees();
+
   }, []);
 
   //delete rmployee

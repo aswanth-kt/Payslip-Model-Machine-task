@@ -18,7 +18,7 @@ export const Payslip = ({ payslipData }) => {
         {/* Header */}
         <div className="company-header">
           <h2>BTRACK</h2>
-          <p>Down Town, Kannur, Talap</p>
+          <p>Down Town, Talap, Kannur</p>
           <h3>Salary Slip - {payslipData.totalPayableDay} (Leave: {payslipData.leave})</h3>
         </div>
 

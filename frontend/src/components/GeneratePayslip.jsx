@@ -51,7 +51,7 @@ export const GeneratePayslip = ({ setPayslip }) => {
         `${import.meta.env.VITE_BACKEND_URL}/api/employee/calculate-salary`,
         { emp_id, totalDay, leave }
       );
-      console.log("calc res:", res);
+      // console.log("calc res:", res);
 
       //pass res payslip data to payslip component
       setPayslip(res.data.payslipData);

@@ -240,7 +240,6 @@ export const calculateSalary = async (req, res) => {
       })
     };
 
-    console.log("calc body:", req.body)
     const employee = await Employee.findById(emp_id);
 
     if (!employee) {
@@ -271,15 +270,15 @@ export const calculateSalary = async (req, res) => {
       leave: Number(leave),
       totalPayableDay,
       perDaySalary,
-      adjustBasicSalary,
+      adjustBasicSalary: adjustBasicSalary.toFixed(2),
       hra: hra.toFixed(2),
       da: da.toFixed(2),
       otherAllowances: otherAllowances.toFixed(2),
       pf: pf.toFixed(2),
       esi: esi.toFixed(2),
-      totalEarnings,
-      totalDeductions,
-      netSalary,
+      totalEarnings: totalEarnings.toFixed(2),
+      totalDeductions: totalDeductions.toFixed(2),
+      netSalary: netSalary.toFixed(2),
       employee
     };
 
