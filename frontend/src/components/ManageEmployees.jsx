@@ -29,30 +29,33 @@ export const ManageEmployees = () => {
   };
 
   // fetch single employee
-  const getEmployee = async () => {
-
-    try {
-
-      const res = await axios.get(
-        `${import.meta.env.VITE_BACKEND_URL}/api/employee/employee/${id}`
-      );
-
-      const emp = res.data.employee;
-      console.log("single employee", emp)
-      setEmployee({
-        ...emp,
-        joiningDate: emp.joiningDate?.substring(0,10)
-      });
-
-    } catch (error) {
-      console.log(error);
-    }
-
-  };
-
+  
   useEffect(() => {
+
+    const getEmployee = async () => {
+  
+      try {
+  
+        const res = await axios.get(
+          `${import.meta.env.VITE_BACKEND_URL}/api/employee/employee/${id}`
+        );
+  
+        const emp = res.data.employee;
+        console.log("single employee", emp)
+        setEmployee({
+          ...emp,
+          joiningDate: emp.joiningDate?.substring(0,10)
+        });
+  
+      } catch (error) {
+        console.log(error);
+      }
+  
+    };
+
     getEmployee();
-  }, []);
+
+  }, [id]);
 
   const handleSubmit = async (e) => {
 

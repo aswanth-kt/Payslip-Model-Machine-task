@@ -185,16 +185,16 @@ export const deleteEmployee = async (req, res) => {
 
     const deletedEmployee = await Employee.findByIdAndDelete(id);
 
-    if (!deleteEmployee) {
+    if (!deletedEmployee) {
       return res.status(400).json({
         success: false,
-        message: `Failed to delete ${deleteEmployee.name}. Try again`
+        message: `Failed to delete ${deletedEmployee.name}. Try again`
       });
     };
 
     return res.status(200).json({
       success: true,
-      message: `${deleteEmployee.name} deleted successfully`
+      message: `${deletedEmployee.name} deleted successfully`
     })
 
   } catch (error) {
