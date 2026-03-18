@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { GeneratePayslip } from '../components/GeneratePayslip'
+import { GeneratePayslip } from './GeneratePayslip'
 import { Payslip } from '../components/Payslip'
 
 export const PayslipPage = () => {

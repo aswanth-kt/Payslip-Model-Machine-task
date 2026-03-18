@@ -1,8 +1,8 @@
 import './App.css'
 import { Routes, Route, Link } from 'react-router-dom';
-import { DisplayEmployees } from './components/DisplayEmployees'
-import { EmployeeCreation } from './components/EmployeeCreation'
-import { ManageEmployees } from './components/ManageEmployees';
+import { DisplayEmployees } from './page/DisplayEmployees'
+import { EmployeeCreation } from './page/EmployeeCreation'
+import { ManageEmployees } from './page/ManageEmployees';
 import { Sidebar } from './components/Sidebar';
 import { PayslipPage } from './page/PayslipPage';
 
