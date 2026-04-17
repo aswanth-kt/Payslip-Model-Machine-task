@@ -87,12 +87,7 @@ npm run dev
 
 You can watch a quick walkthrough of the project here:
 
-👉 [Watch Demo Video](#)
-
-### 📌 Preview
-
-![Demo Preview](./assets/Demo-PayslipGen.mp4)
-
+👉 [Watch Demo Video](https://youtu.be/SSWnA_jMTBw)
 
 ---
 
