@@ -83,6 +83,20 @@ npm run dev
 ---
 
 
+## 🎥 Video Demo
+
+You can watch a quick walkthrough of the project here:
+
+👉 [Watch Demo Video](#)
+
+### 📌 Preview
+
+![Demo Preview](./assets/Demo-PayslipGen.mp4)
+
+
+---
+
+
 ## Future Improvements
 
 - [ ] Admin / HR authentication
