@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
 import "./Sidebar.css";
 
 export const Sidebar = () => {
@@ -10,15 +10,36 @@ export const Sidebar = () => {
       <ul className="menu">
 
         <li>
-          <Link to="/" >Employees</Link>
+          <NavLink 
+            to="/" 
+            className={({isActive}) => 
+              isActive ? "isActive" : ""
+            }
+          >
+            Employees
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/create-employee" >Add Employees</Link>
+          <NavLink
+           to="/create-employee" 
+           className={({isActive}) => 
+            isActive ? "isActive" : ""
+           }
+          >
+            Add Employees
+          </NavLink>
         </li>
 
         <li>
-          <Link to="/generatePayslip" >Generate Payslip</Link>
+          <NavLink
+            to="/generatePayslip" 
+            className={({isActive}) =>
+              isActive ? "isActive" : ""
+            }
+          >
+            Generate Payslip
+          </NavLink>
         </li>
 
         <li>

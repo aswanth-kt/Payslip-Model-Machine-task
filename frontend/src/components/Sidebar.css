@@ -40,3 +40,7 @@
 .logout {
   margin-top: 40px;
 }
+
+.isActive {
+  background-color: #374151;
+}
