@@ -5,19 +5,22 @@ import Swal from "sweetalert2";
 import withReactContent from "sweetalert2-react-content";
 import { toast } from "react-toastify";
 import "./DisplayEmployees.css";
+import Spinner from "../components/Spinner";
 
 
 const mySwal = withReactContent(Swal);
 
 export const DisplayEmployees = () => {
 
-  const [employees, setEmployees] = useState([]);
   const navigate = useNavigate();
 
+  const [employees, setEmployees] = useState([]);
+  const [loading, setLoading] = useState(false)
   
   useEffect(() => {
 
     const getEmployees = async () => {
+      setLoading(true)
   
       try {
   
@@ -27,6 +30,8 @@ export const DisplayEmployees = () => {
   
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
   
     };
@@ -66,79 +71,86 @@ export const DisplayEmployees = () => {
 
       <h2 className="page-title">Employee List</h2>
 
-      <div className="table-container">
+        <div className="table-container">
 
-        <table className="employee-table">
+          {loading ? (
+            <Spinner />
+          ) : (
 
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Employee ID</th>
-              <th>Designation</th>
-              <th>Joining Date</th>
-              <th>Basic Salary</th>
-              <th>HRA %</th>
-              <th>DA %</th>
-              <th>Allowance %</th>
-              <th>ESI %</th>
-              <th>PF %</th>
-              <th>Action</th>
-            </tr>
-          </thead>
+            <table className="employee-table">
 
-          <tbody>
+              <thead>
+                <tr>
+                  <th>Name</th>
+                  <th>Employee ID</th>
+                  <th>Designation</th>
+                  <th>Joining Date</th>
+                  <th>Basic Salary</th>
+                  <th>HRA %</th>
+                  <th>DA %</th>
+                  <th>Allowance %</th>
+                  <th>ESI %</th>
+                  <th>PF %</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
 
-            {employees.map((emp) => (
-              <tr key={emp._id}>
+              <tbody>
 
-                <td className="emp-name">{emp.name}</td>
-                <td>{emp.employeeId}</td>
+                {employees.map((emp) => (
+                  <tr key={emp._id}>
 
-                <td>
-                  <span className="designation-badge">
-                    {emp.designation}
-                  </span>
-                </td>
+                    <td className="emp-name">{emp.name}</td>
+                    <td>{emp.employeeId}</td>
 
-                <td>{new Date(emp.joiningDate).toLocaleDateString()}</td>
+                    <td>
+                      <span className="designation-badge">
+                        {emp.designation}
+                      </span>
+                    </td>
 
-                <td className="salary">
-                  ₹{emp.basicSalary}
-                </td>
+                    <td>{new Date(emp.joiningDate).toLocaleDateString()}</td>
 
-                <td>{emp.hraPercent}</td>
-                <td>{emp.daPercent}</td>
-                <td>{emp.allowancePercent}</td>
-                <td>{emp.esiPercent}</td>
-                <td>{emp.pfPercent}</td>
+                    <td className="salary">
+                      ₹{emp.basicSalary}
+                    </td>
 
-                <td className="actions">
+                    <td>{emp.hraPercent}</td>
+                    <td>{emp.daPercent}</td>
+                    <td>{emp.allowancePercent}</td>
+                    <td>{emp.esiPercent}</td>
+                    <td>{emp.pfPercent}</td>
 
-                  <Link 
-                    to={`/manage-employee/${emp._id}`}
-                    className="edit-btn"
-                  >
-                    Edit
-                  </Link>
+                    <td className="actions">
 
-                  <Link 
-                    to={`/delete-employee/${emp._id}`}
-                    onClick={() => handleDelete(emp._id)}
-                    className="delete-btn"
-                  >
-                    Delete
-                  </Link>
+                      <Link 
+                        to={`/manage-employee/${emp._id}`}
+                        className="edit-btn"
+                      >
+                        Edit
+                      </Link>
 
-                </td>
+                      <Link 
+                        to={`/delete-employee/${emp._id}`}
+                        onClick={() => handleDelete(emp._id)}
+                        className="delete-btn"
+                      >
+                        Delete
+                      </Link>
 
-              </tr>
-            ))}
+                    </td>
 
-          </tbody>
+                  </tr>
+                ))}
 
-        </table>
+              </tbody>
 
-      </div>
+            </table>
+
+          )}
+
+
+        </div>
 
     </div>
   );
